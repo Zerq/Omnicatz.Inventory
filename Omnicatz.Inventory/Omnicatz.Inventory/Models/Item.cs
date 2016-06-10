@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace Omnicatz.Inventory.Models {
     public class Item {
-  
-        public Guid Id { get; set; }
+        public Item() {
+            this.Categories = new List<Category>();
+        }
+        public int Id { get; set; }
 
 
-        private string nonExclusiveRef;
-        public string NonExclusiveRef { get {
+        protected string nonExclusiveRef;
+        public virtual string NonExclusiveRef { get {
                 if (nonExclusiveRef == string.Empty) {
-                    nonExclusiveRef = Id.ToString();
+                    nonExclusiveRef = "I"+ Id.ToString();
                 }
                 return nonExclusiveRef;
             } set {

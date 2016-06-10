@@ -7,13 +7,13 @@ namespace Omnicatz.Inventory.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class init : IMigrationMetadata
+    public sealed partial class WHAAAAAAAAAAG : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(WHAAAAAAAAAAG));
         
         string IMigrationMetadata.Id
         {
-            get { return "201606092142418_init"; }
+            get { return "201606101158144_WHAAAAAAAAAAG"; }
         }
         
         string IMigrationMetadata.Source

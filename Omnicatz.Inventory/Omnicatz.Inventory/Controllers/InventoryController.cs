@@ -7,28 +7,28 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Omnicatz.Inventory.Data;
-using Omnicatz.Inventory.Models;
+ 
 
 namespace Omnicatz.Inventory.Controllers
 {
-    public class InvnetoriesController : Controller
+    public class InventoryController : Controller
     {
         private Context db = new Context();
 
-        // GET: Invnetories
+        // GET: Inventory
         public ActionResult Index()
         {
-            return View(db.Items.ToList());
+            return View(db.Inventories.ToList());
         }
 
-        // GET: Invnetories/Details/5
+        // GET: Inventory/Details/5
         public ActionResult Details(Guid? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Invnetory invnetory = db.Inventories.Find(id.Value);
+          Models.Inventory invnetory = db.Inventories.Find(id.Value);
             if (invnetory == null)
             {
                 return HttpNotFound();
@@ -36,23 +36,23 @@ namespace Omnicatz.Inventory.Controllers
             return View(invnetory);
         }
 
-        // GET: Invnetories/Create
+        // GET: Inventory/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Invnetories/Create
+        // POST: Inventory/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,NonExclusiveRef,Name,Description,IsWhiteList")] Invnetory invnetory)
+        public ActionResult Create([Bind(Include = "Id,NonExclusiveRef,Name,Description,IsWhiteList")] Models.Inventory invnetory)
         {
             if (ModelState.IsValid)
             {
-                invnetory.Id = Guid.NewGuid();
-                db.Items.Add(invnetory);
+ 
+                db.Inventories.Add(invnetory);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -60,14 +60,14 @@ namespace Omnicatz.Inventory.Controllers
             return View(invnetory);
         }
 
-        // GET: Invnetories/Edit/5
-        public ActionResult Edit(Guid? id)
+        // GET: Inventory/Edit/5
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Invnetory invnetory = db.Inventories.Find(id);
+            Models.Inventory invnetory = db.Inventories.Find(id);
             if (invnetory == null)
             {
                 return HttpNotFound();
@@ -75,12 +75,12 @@ namespace Omnicatz.Inventory.Controllers
             return View(invnetory);
         }
 
-        // POST: Invnetories/Edit/5
+        // POST: Inventory/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,NonExclusiveRef,Name,Description,IsWhiteList")] Invnetory invnetory)
+        public ActionResult Edit([Bind(Include = "Id,NonExclusiveRef,Name,Description,IsWhiteList")] Models.Inventory invnetory)
         {
             if (ModelState.IsValid)
             {
@@ -91,14 +91,14 @@ namespace Omnicatz.Inventory.Controllers
             return View(invnetory);
         }
 
-        // GET: Invnetories/Delete/5
-        public ActionResult Delete(Guid? id)
+        // GET: Inventory/Delete/5
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Invnetory invnetory = db.Inventories.Find(id);
+            Models.Inventory invnetory = db.Inventories.Find(id);
             if (invnetory == null)
             {
                 return HttpNotFound();
@@ -106,12 +106,12 @@ namespace Omnicatz.Inventory.Controllers
             return View(invnetory);
         }
 
-        // POST: Invnetories/Delete/5
+        // POST: Inventory/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(Guid id)
+        public ActionResult DeleteConfirmed(int id)
         {
-            Invnetory invnetory = db.Inventories.Find(id);
+            Models.Inventory invnetory = db.Inventories.Find(id);
             db.Items.Remove(invnetory);
             db.SaveChanges();
             return RedirectToAction("Index");

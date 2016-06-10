@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 namespace Omnicatz.Inventory.Data {
    public class Context: System.Data.Entity.DbContext {
         public Context() : base("DefaultConnection") {}
-
+ 
         public DbSet<Models.Category> Categories { get; set; }
         public DbSet<Models.Item> Items { get; set; }
-        public DbSet<Models.Invnetory> Inventories { get; set; }
+        public DbSet<Models.Inventory> Inventories { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder) {
             modelBuilder.Entity<Models.Category>().HasKey(n => n.Id);

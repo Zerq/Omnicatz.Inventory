@@ -1,0 +1,30 @@
+﻿@model Omnicatz.Inventory.Models.Item
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Item</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dd>
+            @Html.DisplayFor(model => model.NonExclusiveRef)
+        </dd>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dd>
+            @Html.ActionLink("Print", "Print", new { Id = Model.Id, Print = true })
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

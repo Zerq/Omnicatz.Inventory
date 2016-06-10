@@ -26,6 +26,8 @@ namespace Omnicatz.Inventory.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            context.Categories.AddOrUpdate(n=> n.Name, Models.Category.Container);
         }
     }
 }

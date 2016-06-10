@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Omnicatz.Inventory", "Omnicatz.Inventory\Omnicatz.Inventory.csproj", "{DCDBAE43-8B97-4201-9FE0-F3E50133BA4A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Omnicatz.Inventory.Tests", "Omnicatz.Inventory.Tests\Omnicatz.Inventory.Tests.csproj", "{8DCF0EFD-2433-42F1-8298-C24BF70558F5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Omnicatz.Inventory.Test", "Omnicatz.Inventory.Test\Omnicatz.Inventory.Test.csproj", "{DFE63C98-1654-4541-BB4D-06F909F9109F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{DCDBAE43-8B97-4201-9FE0-F3E50133BA4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCDBAE43-8B97-4201-9FE0-F3E50133BA4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCDBAE43-8B97-4201-9FE0-F3E50133BA4A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8DCF0EFD-2433-42F1-8298-C24BF70558F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8DCF0EFD-2433-42F1-8298-C24BF70558F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8DCF0EFD-2433-42F1-8298-C24BF70558F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8DCF0EFD-2433-42F1-8298-C24BF70558F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFE63C98-1654-4541-BB4D-06F909F9109F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFE63C98-1654-4541-BB4D-06F909F9109F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFE63C98-1654-4541-BB4D-06F909F9109F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFE63C98-1654-4541-BB4D-06F909F9109F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
