@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 
 namespace PartyStarter.Models {
-
+    //experimental generic classes dont work with entityframework so far as far as i can tell.. think this might work though... it does for winforms which has a similar issue
     public class IngredientPreference : Preference<Ingredient> { }
     public class MediaPreference : Preference<Media> { }
     public class GenrePreference : Preference<Genre> { }
@@ -42,7 +42,7 @@ namespace PartyStarter.Models {
         public DbSet<Amendment> Amendments { get; set; }
         public DbSet<Avalability> Avalabilitys { get; set; }
         public DbSet<EstimatedCostPerUnit> EstimatedCostPerUnits { get; set; }
-        public DbSet<Format> Formats { get; set; }
+        public DbSet<MediaReaderFormat> Formats { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<IngredientMessure> IngredientMessures { get; set; }
@@ -76,18 +76,24 @@ namespace PartyStarter.Models {
 
 
             modelBuilder.Entity<Avalability>().HasKey(n => n.Id);
+
+
             modelBuilder.Entity<EstimatedCostPerUnit>().HasKey(n => n.Id);
-            modelBuilder.Entity<Format>().HasKey(n => n.Id);
+            modelBuilder.Entity<MediaReaderFormat>().HasKey(n => n.Id);
             modelBuilder.Entity<Genre>().HasKey(n => n.Id);
             modelBuilder.Entity<Ingredient>().HasKey(n => n.Id);
             modelBuilder.Entity<IngredientMessure>().HasKey(n => n.Id);
             modelBuilder.Entity<Media>().HasKey(n => n.Id);
             modelBuilder.Entity<MediaFormat>().HasKey(n => n.Id);
-            modelBuilder.Entity<MediaFormat>().HasMany(n=> n.LanguageOptions).
-            modelBuilder.Entity<MediaLanguage>().HasKey(n => new { });
+            modelBuilder.Entity<MediaFormat>().HasMany(n => n.LanguageOptions).WithRequired(n => n.Media);
+            modelBuilder.Entity<MediaLanguage>().HasKey(n => new { n.Language, n.Media });
 
 
             modelBuilder.Entity<MediaReader>().HasKey(n => n.Id);
+            modelBuilder.Entity<MediaReader>().HasMany(n => n.Peripherals).WithRequired(n => n.ParentHardware);
+            modelBuilder.Entity<MediaReader>().HasMany(n => n.Formats).WithRequired(n => n.);
+
+
             modelBuilder.Entity<Objection>().HasKey(n => n.Id);
             modelBuilder.Entity<PartyHostingProposal>().HasKey(n => n.Id);
             modelBuilder.Entity<Peripheral>().HasKey(n => n.Id);
