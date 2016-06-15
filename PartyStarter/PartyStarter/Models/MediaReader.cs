@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 
 namespace PartyStarter.Models
 {
+
+
     public class MediaReader
     {
         public Guid Id { get; set; }
