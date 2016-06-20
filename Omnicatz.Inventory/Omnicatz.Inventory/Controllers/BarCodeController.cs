@@ -20,22 +20,23 @@ namespace Omnicatz.Inventory.Controllers
         [HttpGet]
         public FileResult Index(int id)
         {
-          
-            var items = db.Items.ToArray();
-            var item = db.Items.FirstOrDefault(n=> n.Id == id);
-            if (item == null) {
-                item = db.Inventories.FirstOrDefault(n => n.Id == id);
-            }
+           // if (HttpContext.Request.Url.Host ==  "localhost") {
+                var items = db.Items.ToArray();
+                var item = db.Items.FirstOrDefault(n => n.Id == id);
+                if (item == null) {
+                    item = db.Inventories.FirstOrDefault(n => n.Id == id);
+                }
 
-            var writer = new ZXing.BarcodeWriter() { Format = ZXing.BarcodeFormat.CODE_39 };
-            var bmp = writer.Write(item.NonExclusiveRef);
-            byte[] bytes = null;
-            using (System.IO.MemoryStream stream = new System.IO.MemoryStream()) {
-                bmp.Save(stream,System.Drawing.Imaging.ImageFormat.Png);
-               bytes = stream.GetBuffer();
-            }
-            return File(bytes, @"image/png","barcode.png");
- 
+                var writer = new ZXing.BarcodeWriter() { Format = ZXing.BarcodeFormat.CODE_39 };
+                var bmp = writer.Write(item.NonExclusiveRef);
+                byte[] bytes = null;
+                using (System.IO.MemoryStream stream = new System.IO.MemoryStream()) {
+                    bmp.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
+                    bytes = stream.GetBuffer();
+                }
+                return File(bytes, @"image/png", "barcode.png");
+           // }
+         //   return new HttpUnauthorizedResult("Fuck of!");
         }
     }
 }
